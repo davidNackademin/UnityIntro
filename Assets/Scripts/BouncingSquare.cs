@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class BouncingSquare : MonoBehaviour {
 
-    [Range(0f, 1f)]
+    [Range(0f, 100f)]
     public float speed = 0.1f;
     public List<Color> colors = new List<Color>();
 
@@ -26,7 +26,7 @@ public class BouncingSquare : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 position = transform.position;
-        position.x += speed * direction;
+        position.x += speed * direction * Time.deltaTime;
         transform.position = position;
 
 
